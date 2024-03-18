@@ -30,14 +30,14 @@ public class AnswersCertificationsEntity {
   private UUID certificationID;
 
   @ManyToOne()
-  @JoinColumn(name = "certification_id")
+  @JoinColumn(name = "certification_id", insertable = false, updatable = false)
   private CertificationStudentEntity certificationStudentEntity;
 
   @Column(name = "student_id")
   private UUID studentID;
 
   @ManyToOne
-  @JoinColumn(name = "student_id")
+  @JoinColumn(name = "student_id", insertable = false, updatable = false)
   private StudentEntity studentEntity;
 
   @Column(name = "question_id")

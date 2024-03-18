@@ -32,7 +32,7 @@ public class CertificationStudentEntity {
     @Column(length = 10)
     private int grate;
 
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "student_id", insertable = false, updatable = false)
     private UUID studentID;
 
     @ManyToOne
@@ -40,7 +40,7 @@ public class CertificationStudentEntity {
     private StudentEntity studentEntity;
 
     @OneToMany
-    @JoinColumn(name = "answer_certification_id")
+    @JoinColumn(name = "answer_certification_id", insertable = false, updatable = false)
     List<AnswersCertificationsEntity> answersCertificationsEntities;
 
 }
