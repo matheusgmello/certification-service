@@ -1,14 +1,18 @@
 package br.com.matheus.certification.modules.students.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VerifyHasCertificationDTO {
+public class QuestionAnswerDTO {
 
-    private String email;
-    private String technology;
+    private String questionID;
+    private String alternativeID;
+    private boolean isCorrect;
+
 }

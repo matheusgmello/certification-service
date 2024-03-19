@@ -1,6 +1,9 @@
 package br.com.matheus.certification.modules.students.entities;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,14 +20,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity(name = "students")
 public class StudentEntity {
-  
-  @Id
-  @GeneratedValue(strategy =  GenerationType.UUID)
-  private UUID id;
-  
-  @Column(unique = true, nullable = false)
-  private String email;
 
-  @OneToMany(mappedBy = "studentEntity")
-  private List<CertificationStudentEntity> certificationStudentEntity;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    @OneToMany(mappedBy = "studentEntity")
+    private List<CertificationStudentEntity> certificationStudentEntity;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
 }

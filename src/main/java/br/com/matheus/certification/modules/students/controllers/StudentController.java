@@ -13,17 +13,19 @@ import br.com.matheus.certification.modules.students.useCases.VerifyIfHasCertifi
 @RequestMapping("/students")
 public class StudentController {
 
-  @Autowired
-  private VerifyIfHasCertificationUseCase verifyIfHasCertificationUseCase;
-  
-  @PostMapping("/verifyIfHasCertification")
-  public String verifyIfHasCertification(@RequestBody VerifyHasCertificationDTO verifyHasCertificationDTO) {
+    // Preciso usar o meu USECASE
+    @Autowired
+    private VerifyIfHasCertificationUseCase verifyIfHasCertificationUseCase;
 
-    var result = this.verifyIfHasCertificationUseCase.execute(verifyHasCertificationDTO);
-    if(result){
-      return "Usuário já fez a avaliação";
+    @PostMapping("/verifyIfHasCertification")
+    public String verifyIfHasCertification(@RequestBody VerifyHasCertificationDTO verifyHasCertificationDTO) {
+        // Email
+        // Technology
+        var result = this.verifyIfHasCertificationUseCase.execute(verifyHasCertificationDTO);
+        if (result) {
+            return "Usuário já fez a prova";
+        }
+
+        return "Usuário pode fazer a prova";
     }
-    return "Usuário pode fazer a avaliação";
-  }
-
 }

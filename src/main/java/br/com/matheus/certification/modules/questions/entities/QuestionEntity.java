@@ -23,20 +23,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity(name = "questions")
 public class QuestionEntity {
-  
-  @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID id;
 
-  @Column(length = 50)
-  private String technology;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
-  private String description;
+    @Column(length = 50)
+    private String technology;
 
-  @OneToMany
-  @JoinColumn(name = "question_id")
-  private List<AlternativesEntity> alternatives;
+    private String description;
 
-  @CreationTimestamp
-  private LocalDateTime createdAt;
+    @OneToMany
+    @JoinColumn(name = "question_id")
+    private List<AlternativesEntity> alternatives;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 }
