@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.matheus.certification.modules.students.dto.VerifyHasCertificationDTO;
-import br.com.matheus.certification.modules.students.useCases.VerifyHasCertificationUseCase;
+import br.com.matheus.certification.modules.students.useCases.VerifyIfHasCertificationUseCase;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
 
   @Autowired
-  private VerifyHasCertificationUseCase verifyHasCertificationUseCase;
+  private VerifyIfHasCertificationUseCase verifyIfHasCertificationUseCase;
   
   @PostMapping("/verifyIfHasCertification")
   public String verifyIfHasCertification(@RequestBody VerifyHasCertificationDTO verifyHasCertificationDTO) {
 
-    var result = this.verifyHasCertificationUseCase.execute(verifyHasCertificationDTO);
+    var result = this.verifyIfHasCertificationUseCase.execute(verifyHasCertificationDTO);
     if(result){
       return "Usuário já fez a avaliação";
     }
